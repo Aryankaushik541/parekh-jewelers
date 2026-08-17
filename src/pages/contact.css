@@ -1,0 +1,152 @@
+/* Base Styles */
+.contact-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  padding-bottom: 60px;
+}
+
+/* Hero Section with CSS Background Image */
+.contact-hero {
+  position: relative;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Replace 'contact-bg.jpg' with your actual image path if needed */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+    url('../assets/repair/work.jpg'); /* Using the same folder structure as before */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+}
+
+.contact-hero-title {
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.8rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Grid Layout for Split Content */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1000px; /* Limits width to match screenshot proportion */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Left Column (Text Info) */
+.contact-info p {
+  font-size: 14.5px;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.contact-info .gold-link {
+  color: #9d7a2b; /* Exact mustard/gold color from the image */
+  text-decoration: underline;
+}
+
+.contact-address {
+  font-style: normal;
+  line-height: 2;
+  margin-bottom: 30px;
+  font-size: 14.5px;
+  color: #333;
+}
+
+.contact-address strong {
+  font-weight: 700;
+}
+
+.packaging-notice {
+  margin-top: 40px;
+}
+
+.packaging-notice p {
+  margin-bottom: 5px;
+}
+
+/* Right Column (Form) */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Input & Textarea styling matching the sharp edges in screenshot */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  color: #333;
+  border-radius: 0; /* Square borders as per the image */
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #9d7a2b;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: #9d7a2b; /* Gold/Mustard color */
+  color: #fff;
+  border: none;
+  padding: 12px 35px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  align-self: flex-start; /* Aligns button to the left */
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #836522;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr; /* Stacks text on top of the form */
+    gap: 40px;
+  }
+  
+  .contact-hero {
+    height: 180px;
+  }
+  
+  .contact-hero-title {
+    font-size: 2rem;
+  }
+}

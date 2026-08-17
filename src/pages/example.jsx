@@ -148,34 +148,37 @@ export default function RepairExamples() {
   return (
     <div className="rep-page">
       <div className="rep-hero">
-        <h1>Repair Examples</h1>
+        <h1>REPAIR EXAMPLES</h1>
       </div>
 
-      <div className="rep-intro">
-        <p>Here are a few examples of my previous work,</p>
-        <p>I repair most things made from gold, silver or platinum</p>
-        <p>
-          New pieces of jewellery can be made to your requirements from new
-          materials or by melting your old jewellery and reusing the gold and
-          precious stones.
-        </p>
-      </div>
-
-      <p className="rep-caption-bold">
-        Below are few items that I handmade for customers.
-      </p>
-      <ImageGrid images={gridRow1} />
-
-      <p className="rep-caption-bold">
-        Below are a few items I have repaired for customers
-      </p>
-
-      {repairs.map((section, i) => (
-        <div key={i}>
-          <ImageGrid images={section.images} columns={section.columns} />
-          <p className="rep-note">{section.note}</p>
+      {/* Wrapping content in a new container so hero stays full width */}
+      <div className="rep-container">
+        <div className="rep-intro">
+          <p>Here are a few examples of my previous work,</p>
+          <p>I repair most things made from gold, silver or platinum</p>
+          <p>
+            New pieces of jewellery can be made to your requirements from new
+            materials or by melting your old jewellery and reusing the gold and
+            precious stones.
+          </p>
         </div>
-      ))}
+
+        <p className="rep-caption-bold">
+          Below are few items that I handmade for customers.
+        </p>
+        <ImageGrid images={gridRow1} />
+
+        <p className="rep-caption-bold">
+          Below are a few items I have repaired for customers
+        </p>
+
+        {repairs.map((section, i) => (
+          <div key={i}>
+            <ImageGrid images={section.images} columns={section.columns} />
+            <p className="rep-note">{section.note}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

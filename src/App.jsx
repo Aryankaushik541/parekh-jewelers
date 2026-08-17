@@ -7,6 +7,7 @@ import Repair from "./pages/repair";
 import Work from "./pages/work";
 import Example from "./pages/example";
 import Request from "./pages/request";
+import Contact from "./pages/contact";
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/work" element={<Work />} />
           <Route path="/example" element={<Example />} />
           <Route path="/request" element={<Request />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
 

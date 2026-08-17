@@ -1,234 +1,157 @@
-/* =========================================
-   HOW IT WORKS PAGE — work.css
-   Desktop layout matching jewellerychap.co.uk
-   Header & Footer excluded
-   ========================================= */
-
-/* Base */
+/* Base Page Styles */
 .how-it-works-page {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 15px;
   color: #333;
-  line-height: 1.7;
+  line-height: 1.8; /* Line height badha diya hai spacing ke liye */
   background-color: #fff;
+  padding-bottom: 80px;
 }
 
-/* =========================================
-   HERO SECTION
-   Dark background with jeweller's workshop
-   photo overlay — "HOW IT WORKS" centered
-   ========================================= */
-.hero-section1 {
-  background-color: #1e1e18;
-  /* Uncomment and set your image path: */
-   background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('../assets/repair/work.jpg'); 
+/* Hero Section */
+.hiw-hero {
+  position: relative;
+  height: 280px; /* Thoda aur bada kiya screenshot jaisa dikhne ke liye */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url('../assets/repair/work.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
-  text-align: center;
-  padding: 80px 20px;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
 }
 
-.hero-section h2 {
-  font-family: 'Georgia', 'Times New Roman', Times, serif;
-  font-size: 36px;
+.hiw-hero-title {
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3.5rem; /* Font size badha diya */
   font-weight: normal;
-  letter-spacing: 6px;
-  text-transform: uppercase;
+  letter-spacing: 3px;
   margin: 0;
-  color: #fff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
 }
 
-/* =========================================
-   MAIN CONTENT WRAPPER
-   overflow-x hidden — animation ke time
-   horizontal scrollbar na aaye
-   ========================================= */
-.main-content {
-  max-width: 860px;
+/* Main Container */
+.hiw-container {
+  max-width: 1100px; /* Width thodi badhayi taaki text aaram se fit ho */
   margin: 0 auto;
-  padding: 36px 30px 60px;
-  overflow-x: hidden;
+  padding: 0 20px;
 }
 
-/* =========================================
-   INTRO TEXT ANIMATION
-   Page load pe left → right → centre settle
-   (damped oscillation / spring effect)
-   ========================================= */
-@keyframes swingSettle {
-  0%   { transform: translateX(-70px); opacity: 0; }
-  25%  { transform: translateX(35px);  opacity: 1; }
-  45%  { transform: translateX(-18px);             }
-  62%  { transform: translateX(9px);               }
-  76%  { transform: translateX(-4px);              }
-  87%  { transform: translateX(2px);               }
-  95%  { transform: translateX(-1px);              }
-  100% { transform: translateX(0);                 }
-}
-
-/* =========================================
-   INTRO TEXT  —  left-aligned
-   ========================================= */
-.intro-text {
-  font-size: 14.5px;
-  color: #444;
-  line-height: 1.75;
-  text-align: left;
-  margin: 0 0 28px;
-
-  /* Spring settle animation on page load */
-  animation: swingSettle 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-
-  /* Respect reduced-motion user preference */
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
-}
-
-/* =========================================
-   STEP CARDS  —  3 equal columns in a row
-   ========================================= */
-.steps-container {
-  display: flex;
-  flex-direction: row;         /* horizontal row */
-  gap: 0;                      /* cards touch with shared borders */
-  margin-bottom: 32px;
-  border: 1px solid #ccc;      /* outer border */
-}
-
-.step-card {
-  flex: 1;                     /* equal width */
-  padding: 30px 20px 26px;
+/* Intro Text */
+.hiw-intro {
   text-align: center;
-  border-right: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+.hiw-intro p {
+  font-size: 17px; /* 13.5px se 17px kar diya */
+  color: #444;
+  line-height: 1.9;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+/* Steps Grid Setup */
+.hiw-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.hiw-step-box {
+  border: 1px solid #dcdcdc;
+  padding: 45px 25px;
+  text-align: center;
   background-color: #fff;
 }
 
-.step-card:last-child {
-  border-right: none;
-}
-
-.step-number {
-  background-color: #c9a84c;   /* gold */
+.hiw-step-number {
+  background-color: #a3812a; 
   color: #fff;
-  width: 52px;
-  height: 52px;
+  width: 65px; /* Circle ko bhi bada kar diya */
+  height: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-family: 'Georgia', serif;
-  margin: 0 auto 18px;
-  line-height: 1;
+  font-size: 28px; /* Number size badha diya */
+  margin: 0 auto 25px auto;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.step-card p {
-  margin: 0;
-  font-size: 14px;
+.hiw-step-box p {
+  font-size: 16px; /* Bada font size */
   color: #444;
-  line-height: 1.6;
-}
-
-.step-card a {
-  color: #c9a84c;
-  text-decoration: underline;
-}
-
-.step-card a:hover {
-  color: #9a7820;
-}
-
-/* =========================================
-   DETAILED INFO PARAGRAPH  —  left-aligned
-   ========================================= */
-.detailed-info {
-  font-size: 14px;
-  color: #444;
-  line-height: 1.8;
-  text-align: left;
-  margin: 0 0 48px;
-}
-
-/* =========================================
-   Q & A SECTION
-   ========================================= */
-.qa-section {
-  padding-top: 8px;
-}
-
-/* "Questions & Answers." — bold */
-.qa-section h3 {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  color: #222;
-  margin: 0 0 24px;
-  letter-spacing: 0;
-}
-
-.qa-item {
-  margin-bottom: 20px;
-}
-
-/* Question — bold */
-.qa-item h4 {
-  font-size: 14.5px;
-  font-weight: bold;
-  color: #222;
-  margin: 0 0 4px;
-  line-height: 1.5;
-}
-
-/* Answer — regular */
-.qa-item p {
-  font-size: 14.5px;
-  color: #333;
   margin: 0;
   line-height: 1.7;
 }
 
-.qa-item strong {
-  font-weight: bold;
+.gold-link {
+  color: #a3812a;
+  text-decoration: underline;
 }
 
-/* =========================================
-   RESPONSIVE  —  Mobile (stack cards)
-   ========================================= */
-@media (max-width: 680px) {
-  .hero-section {
-    padding: 56px 20px;
+/* Detailed Shipping Info */
+.hiw-shipping-info {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.hiw-shipping-info p {
+  font-size: 16px; /* Bada font size */
+  color: #444;
+  line-height: 1.9;
+  margin: 0 auto;
+}
+
+/* Questions & Answers Section */
+.hiw-qa-section {
+  text-align: left;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.qa-main-heading {
+  font-size: 18px; /* Heading badi ki gayi */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 35px;
+}
+
+.qa-item {
+  margin-bottom: 35px; /* Items ke beech gap badha diya */
+}
+
+.qa-item h4 {
+  font-size: 17px; /* Questions ka font bada aur bold */
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 12px 0;
+}
+
+.qa-item p {
+  font-size: 16px; /* Answers ka font bada */
+  color: #444;
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* Responsive Styles for Mobile & Tablets */
+@media (max-width: 850px) {
+  .hiw-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
-  .hero-section h2 {
-    font-size: 26px;
-    letter-spacing: 4px;
+  .hiw-hero {
+    height: 200px;
   }
-
-  .main-content {
-    padding: 28px 18px 48px;
-  }
-
-  /* Stack cards vertically on mobile */
-  .steps-container {
-    flex-direction: column;
-    border: none;
-    gap: 14px;
-  }
-
-  .step-card {
-    border: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-  }
-
-  .step-number {
-    width: 44px;
-    height: 44px;
-    font-size: 20px;
-  }
-
-  .detailed-info {
-    font-size: 13.5px;
+  
+  .hiw-hero-title {
+    font-size: 2.5rem;
   }
 }

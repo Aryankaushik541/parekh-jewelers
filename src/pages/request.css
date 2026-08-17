@@ -1,265 +1,225 @@
+/* Base Page Styles */
 .quote-page {
-  --q-ink: #2b2b2b;
-  --q-muted: #4a4a4a;
-  --q-gold: #b9975b;
-  --q-border: #ddd;
-  --q-field-bg: #fff;
-
-  font-family: Georgia, "Times New Roman", serif;
-  color: var(--q-ink);
-  max-width: 1180px;
-  margin: 0 auto;
-  background-color: #fafafa; /* Added subtle background */
-  padding-bottom: 40px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #fff;
+  padding-bottom: 60px;
 }
 
-/* Hero banner with Image in CSS */
+/* Hero Section */
 .quote-hero {
   position: relative;
-  height: 220px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  margin-bottom: 40px;
-  border-bottom: 3px solid var(--q-gold);
   
-  /* Image Setup */
+  /* Replace with your exact banner image path */
   background-image: 
-    linear-gradient(rgba(43, 43, 43, 0.6), rgba(43, 43, 43, 0.6)), /* Recreates the grayscale/brightness effect */
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url('../assets/repair/work.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-bottom: 40px;
 }
 
-/* Title enters off-screen and settles to center on every load */
 .quote-hero-title {
-  position: relative;
   color: #fff;
-  letter-spacing: 0.14em;
-  font-weight: 400;
-  font-size: 2.4rem;
-  text-transform: uppercase;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.8rem;
+  font-weight: normal;
+  letter-spacing: 2px;
   margin: 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
-  animation: quote-title-settle 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
 }
 
-@keyframes quote-title-settle {
-  0% { transform: translateX(-160%); opacity: 0; }
-  45% { transform: translateX(60%); opacity: 1; }
-  70% { transform: translateX(-20%); }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .quote-hero-title {
-    animation: none;
-  }
-}
-
-/* Notice + intro copy alignment */
-.quote-notice, .quote-intro {
-  text-align: center;
-  max-width: 800px; /* Constrain width for better readability */
-  margin: 0 auto 30px auto;
+/* Container for all content */
+.quote-container {
+  max-width: 950px;
+  margin: 0 auto;
   padding: 0 20px;
 }
 
-.quote-notice {
-  font-size: 1.15rem;
-  line-height: 1.8;
+/* Notices / Intro Text */
+.quote-notice-primary {
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-.quote-intro {
-  font-size: 1rem;
-  line-height: 1.9;
-  color: var(--q-muted);
+.quote-notice-primary p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+
+.quote-notice-secondary {
+  text-align: center;
   margin-bottom: 50px;
 }
 
-.quote-intro p {
-  margin: 6px 0;
+.quote-notice-secondary p {
+  font-size: 13px;
+  color: #666;
+  margin: 10px 0;
+  line-height: 1.8;
 }
 
-/* Form Container Alignment */
+/* Form Styles */
 .quote-form {
-  max-width: 800px; /* Constrains the form width to look professional */
-  margin: 0 auto;
-  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
 }
 
-.quote-row {
+.form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 24px;
+  gap: 30px;
+  margin-bottom: 25px;
 }
 
-.quote-field {
+.form-group {
   display: flex;
   flex-direction: column;
 }
 
-.quote-field--full {
-  margin-bottom: 24px;
+.full-width {
+  margin-bottom: 25px;
 }
 
-.quote-field label {
-  font-size: 0.95rem;
-  color: var(--q-ink);
-  font-weight: 600;
+.form-group label {
+  font-size: 13px;
+  color: #555;
   margin-bottom: 8px;
-  line-height: 1.5;
 }
 
-.quote-field input[type="text"],
-.quote-field input[type="email"],
-.quote-field textarea {
+.req-star {
+  color: #9d7a2b; /* Gold asterisk */
+}
+
+.empty-label {
+  display: block;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e5e5; /* Very light gray border */
+  background-color: #fafafa;
   font-family: inherit;
-  font-size: 1rem;
-  padding: 12px; /* Increased padding for better look */
-  border: 1px solid var(--q-border);
-  border-radius: 4px;
-  background: var(--q-field-bg);
-  color: var(--q-ink);
-  transition: all 0.2s ease;
+  font-size: 14px;
+  color: #333;
+  border-radius: 0; /* Square edges exactly like screenshot */
+  box-sizing: border-box;
 }
 
-.quote-field textarea {
-  resize: vertical; /* Allows user to drag down */
-}
-
-.quote-field input:focus,
-.quote-field textarea:focus {
+.form-group input:focus {
   outline: none;
-  border-color: var(--q-gold);
-  box-shadow: 0 0 0 3px rgba(185, 151, 91, 0.2);
+  border-color: #9d7a2b;
+  background-color: #fff;
 }
 
-.quote-divider {
-  height: 1px;
-  background-color: var(--q-border);
-  margin: 40px 0;
+/* Section Title (Tell us about your jewellery) */
+.form-section-title {
+  margin: 20px 0;
 }
 
-.quote-subheading {
-  font-weight: 400;
-  font-size: 1.6rem;
-  margin: 0 0 25px 0;
-  color: var(--q-gold);
+.form-section-title h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 22px;
+  font-weight: normal;
+  color: #333;
+  margin: 0;
 }
 
-/* File dropzone */
-.quote-dropzone {
-  border: 2px dashed var(--q-border);
-  border-radius: 6px;
-  padding: 50px 20px;
-  background: #fafafa;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+/* Dropzone Styles */
+.dropzone {
+  border: 1px dashed #ccc;
+  padding: 40px 20px;
+  background-color: #fafafa;
   text-align: center;
-  color: #999;
-  transition: border-color 0.25s ease, background 0.25s ease;
+  margin-top: 5px;
 }
 
-.quote-dropzone:hover {
-  border-color: var(--q-gold);
-  background: rgba(185, 151, 91, 0.04);
+.dropzone p {
+  font-size: 13px;
+  color: #888;
+  margin: 0 0 15px 0;
 }
 
-.quote-select-btn {
-  display: inline-block;
-  background: var(--q-gold);
-  color: #fff;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 12px 26px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.25s ease;
-}
-
-.quote-select-btn:hover {
-  background: #a5823f;
-}
-
-.quote-submit-container {
-  display: flex;
-  justify-content: flex-end; /* Aligns the submit button to the right */
-  margin: 20px 0 40px 0;
-}
-
-.quote-submit-btn {
-  display: inline-block;
-  font-family: inherit;
-  background: var(--q-ink);
+.select-files-btn {
+  background-color: #9d7a2b; /* Gold/Mustard */
   color: #fff;
   border: none;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 16px 40px;
-  border-radius: 4px;
+  padding: 8px 25px;
+  font-size: 12px;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: background 0.25s ease, transform 0.2s ease;
+  display: inline-block;
+  transition: background-color 0.2s;
 }
 
-.quote-submit-btn:hover {
-  background: var(--q-gold);
-  transform: translateY(-2px);
+.select-files-btn:hover {
+  background-color: #836522;
 }
 
-/* Footnote */
-.quote-footnote {
+/* Submit Button */
+.form-submit-container {
+  margin-top: 10px;
+  text-align: left; /* Exactly aligned to the left as per screenshot */
+}
+
+.submit-quote-btn {
+  background-color: #9d7a2b;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-quote-btn:hover {
+  background-color: #836522;
+}
+
+/* Footnotes Section */
+.quote-footnotes {
   text-align: center;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: var(--q-muted);
-  padding: 40px 20px 20px 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  border-top: 1px solid var(--q-border);
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+  margin-top: 40px;
 }
 
-.quote-footnote p {
+.quote-footnotes p {
+  font-size: 12px;
+  color: #555;
   margin-bottom: 15px;
+  line-height: 1.8;
 }
 
-.quote-footnote-bold {
-  font-weight: 700;
-  color: var(--q-ink);
+.quote-footnotes strong {
+  color: #333;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  .quote-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .quote-hero {
-    height: 160px;
-  }
-
-  .quote-hero-title {
-    font-size: 1.5rem;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr; /* Stack columns on small screens */
+    gap: 20px;
   }
   
-  .quote-submit-container {
-    justify-content: center; /* Centers button on mobile */
+  .quote-hero {
+    height: 180px;
   }
-
-  .quote-submit-btn {
-    width: 100%;
-  }
-
-  .quote-dropzone {
-    padding: 36px 16px;
+  
+  .quote-hero-title {
+    font-size: 2rem;
   }
 }

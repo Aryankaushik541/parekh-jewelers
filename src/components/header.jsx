@@ -93,7 +93,7 @@ function Header() {
             <a href="request">REQUEST A QUOTE</a>
           </li>
           <li className="nav-item">
-            <a href="#contact">CONTACT</a>
+            <a href="contact">CONTACT</a>
           </li>
         </ul>
       </nav>

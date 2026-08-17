@@ -6,44 +6,35 @@
 
   font-family: Georgia, "Times New Roman", serif;
   color: var(--rep-ink);
+  background-color: #fff;
+  padding-bottom: 60px;
+}
+
+/* Naya container jo sirf content ko constrain karega, Hero ko nahi */
+.rep-container {
   max-width: 1180px;
   margin: 0 auto;
 }
 
-/* Hero banner */
+/* Hero banner - Ab yeh full screen width lega */
 .rep-hero {
   position: relative;
-  overflow: hidden;
+  height: 280px; /* Baki pages ki tarah height match kar di */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
   border-bottom: 3px solid var(--rep-gold);
-  width: 100%;
-  background-color: #1e1e18;
+  
+  /* Negative values hata kar 0.5 set kar di */
   background-image: linear-gradient(
-      rgba(0, 0, 0, -9.5),
-      rgba(0, 0, 0, -2.5)
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
     ),
     url("../assets/repair/work.jpg");
   background-size: cover;
   background-position: center;
-  color: #fff;
-  text-align: center;
-  padding: 80px 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.rep-hero img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(60%) brightness(0.5);
+  background-repeat: no-repeat;
 }
 
 .rep-hero h1 {
@@ -51,20 +42,20 @@
   color: #fff;
   letter-spacing: 0.14em;
   font-weight: 400;
-  font-size: 2.2rem;
+  font-size: 3rem; /* Thoda bada kar diya */
   text-transform: uppercase;
   margin: 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Intro copy */
 .rep-intro {
   text-align: center;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.9;
   color: var(--rep-muted);
   padding: 0 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .rep-intro p {
@@ -75,9 +66,9 @@
 .rep-caption-bold {
   text-align: center;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   letter-spacing: 0.01em;
-  margin: 40px 0 20px;
+  margin: 60px 0 30px;
   position: relative;
 }
 
@@ -120,7 +111,7 @@
 /* Captions under each grid */
 .rep-note {
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: var(--rep-muted);
   padding: 16px 60px 44px;
@@ -139,10 +130,10 @@
   }
 
   .rep-hero {
-    height: 160px;
+    height: 180px;
   }
 
   .rep-hero h1 {
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
 }
