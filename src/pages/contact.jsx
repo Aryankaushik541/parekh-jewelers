@@ -17,7 +17,7 @@ export default function Contact() {
           <p>If you have a general enquiry please use this form.</p>
           
           <p>
-            If you'd like a quote for your jewellery repairs, please follow this link <a href="#quote" className="gold-link">here, and please attach some photos.</a> – I cannot give you a quote without clear photos and details such as sizes and carat.
+            If you'd like a quote for your jewellery repairs, please follow this link <a href="request" className="gold-link">here, and please attach some photos.</a> – I cannot give you a quote without clear photos and details such as sizes and carat.
           </p>
           
           <p>
@@ -27,10 +27,10 @@ export default function Contact() {
           <p>Please send your repairs to:</p>
           
           <address className="contact-address">
-            <strong>The Old Red Postbox</strong><br />
-            <strong>PO Box 744</strong><br />
-            <strong>North Ferriby</strong><br />
-            <strong>HU14 9BN</strong>
+            <strong>Parekh Jewelers</strong><br />
+            <strong>10010 Coit Road 300</strong><br />
+            <strong>Frisco</strong><br />
+            <strong>TX 75030</strong>
           </address>
 
           <div className="packaging-notice">

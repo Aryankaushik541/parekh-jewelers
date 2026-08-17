@@ -23,7 +23,7 @@ export default function HowItWorks() {
         <div className="hiw-steps-grid">
           <div className="hiw-step-box">
             <div className="hiw-step-number">1</div>
-            <p>Request an estimate <a href="#quote" className="gold-link">here</a> and attach a few photos of your jewellery</p>
+            <p>Request an estimate <a href="request" className="gold-link">here</a> and attach a few photos of your jewellery</p>
           </div>
           
           <div className="hiw-step-box">

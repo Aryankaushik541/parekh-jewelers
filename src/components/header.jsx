@@ -63,7 +63,7 @@ function Header() {
             <div className={`mega-menu ${isDropdownOpen ? 'show' : ''}`}>
               <div className="mega-menu-content">
                 <div className="menu-column">
-                  <a href="#ring-repairs">RING REPAIRS</a>
+                  <a href="Jewellery">RING REPAIRS</a>
                   <a href="#ring-resizing">RING RESIZING</a>
                   <a href="#necklace-chain-repairs">NECKLACE CHAIN REPAIRS</a>
                 </div>

@@ -7,7 +7,7 @@ function Home() {
       title: 'Ring Repairs',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2019/12/service-ring-repairs.jpg',
-      link: '#ring-repairs',
+      link: 'ring-repairs',
     },
     {
       title: 'Ring Resizing',
@@ -72,7 +72,7 @@ function Home() {
            Jewelery Repairs by Post
           </h1>
 
-          <a href="#how-it-works" className="hero-btn">
+          <a href="work" className="hero-btn">
             Find out more
           </a>
         </div>
@@ -149,7 +149,7 @@ function Home() {
               <div className="step-badge">1</div>
               <p>
                 Send us a few photos of your jewelery and receive a{' '}
-                <a href="#estimate" className="gold-link">
+                <a href="request" className="gold-link">
                   free no-obligation estimate
                 </a>{' '}
                 for your repair.

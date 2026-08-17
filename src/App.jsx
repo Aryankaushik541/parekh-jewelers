@@ -8,6 +8,7 @@ import Work from "./pages/work";
 import Example from "./pages/example";
 import Request from "./pages/request";
 import Contact from "./pages/contact";
+import Jewellery from "./pages/JewelleryRepairs";
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +22,7 @@ function App() {
           <Route path="/example" element={<Example />} />
           <Route path="/request" element={<Request />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/jewellery" element={<Jewellery />} />
         </Routes>
       </main>
 

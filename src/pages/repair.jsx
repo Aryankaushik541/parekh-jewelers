@@ -116,7 +116,7 @@ const RepairServices = () => {
       {/* ── CTA Strip ── */}
       <div className="rs-strip">
         <p className="rs-strip-text">Ready to restore your jewellery?</p>
-        <a className="rs-strip-link" href="/request-a-quote">
+        <a className="rs-strip-link" href="/request">
           Request a Quote
         </a>
       </div>

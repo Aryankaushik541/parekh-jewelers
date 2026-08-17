@@ -58,8 +58,8 @@
 .hiw-steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  margin-bottom: 50px;
+  gap: 2px;
+  margin-bottom: 35px;
 }
 
 .hiw-step-box {
