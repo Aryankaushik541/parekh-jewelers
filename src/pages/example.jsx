@@ -1,4 +1,6 @@
+import { useState, useEffect, useRef, useCallback } from "react";
 import "./example.css";
+import "./lightbox.css";
 
 // row 1 (top grid)
 import img1 from "../assets/example/1.jpg";
@@ -134,17 +136,212 @@ const repairs = [
   },
 ];
 
-function ImageGrid({ images, columns = 3 }) {
+// ─── Image grid (now click-to-open) ───────────────────────────────────────────
+// Clicking any image opens the lightbox scoped to THIS grid's own images only,
+// so prev/next and the thumbnail strip stay within the same section.
+function ImageGrid({ images, columns = 3, onImageClick }) {
   return (
     <div className={columns === 2 ? "rep-grid rep-grid--2" : "rep-grid"}>
       {images.map((img, idx) => (
-        <img key={idx} src={img.src} alt={img.alt} loading="lazy" />
+        <img
+          key={idx}
+          src={img.src}
+          alt={img.alt}
+          loading="lazy"
+          onClick={() => onImageClick(images, idx)}
+          style={{ cursor: "pointer" }}
+        />
       ))}
     </div>
   );
 }
 
+// ─── Lightbox ─────────────────────────────────────────────────────────────────
+function Lightbox({ images, index, onClose, onIndexChange }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const thumbStripRef = useRef(null);
+  const intervalRef = useRef(null);
+
+  const total = images.length;
+  const current = images[index];
+
+  const goPrev = useCallback(() => {
+    onIndexChange((index - 1 + total) % total);
+  }, [index, total, onIndexChange]);
+
+  const goNext = useCallback(() => {
+    onIndexChange((index + 1) % total);
+  }, [index, total, onIndexChange]);
+
+  // slideshow autoplay
+  useEffect(() => {
+    if (isPlaying) {
+      intervalRef.current = setInterval(() => {
+        onIndexChange((prev) => (prev + 1) % total);
+      }, 2200);
+    }
+    return () => clearInterval(intervalRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPlaying, total]);
+
+  // keyboard support
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [onClose, goPrev, goNext]);
+
+  // keep active thumbnail scrolled into view
+  useEffect(() => {
+    const strip = thumbStripRef.current;
+    if (!strip) return;
+    const activeThumb = strip.children[index];
+    if (activeThumb) {
+      activeThumb.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [index]);
+
+  const scrollThumbs = (dir) => {
+    const strip = thumbStripRef.current;
+    if (!strip) return;
+    strip.scrollBy({ left: dir * 160, behavior: "smooth" });
+  };
+
+  const fileLabel = (alt) =>
+    alt ? alt : `Image ${index + 1}`;
+
+  return (
+    <div className="lb-overlay" onClick={onClose}>
+      <div
+        className={`lb-box${isFullscreen ? " lb-box--fullscreen" : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          className="lb-fullscreen-toggle"
+          onClick={() => setIsFullscreen((f) => !f)}
+          aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+        >
+          {isFullscreen ? "🗗" : "⛶"}
+        </button>
+
+        <div className="lb-main">
+          <div className="lb-image-wrap">
+            <img className="lb-image" src={current.src} alt={current.alt} />
+
+            <button
+              className="lb-nav lb-nav-left"
+              onClick={goPrev}
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+
+            <button
+              className="lb-nav lb-nav-right"
+              onClick={goNext}
+              aria-label="Next image"
+            >
+              ›
+            </button>
+
+            <div className="lb-thumbstrip-row">
+              <button
+                className="lb-thumb-scroll"
+                onClick={() => scrollThumbs(-1)}
+                aria-label="Scroll thumbnails left"
+              >
+                ◀
+              </button>
+
+              <div className="lb-thumbstrip" ref={thumbStripRef}>
+                {images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img.src}
+                    alt={img.alt}
+                    className={
+                      i === index ? "lb-thumb lb-thumb-active" : "lb-thumb"
+                    }
+                    onClick={() => onIndexChange(i)}
+                  />
+                ))}
+              </div>
+
+              <button
+                className="lb-thumb-scroll"
+                onClick={() => scrollThumbs(1)}
+                aria-label="Scroll thumbnails right"
+              >
+                ▶
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="lb-controls">
+          <button
+            className="lb-play"
+            onClick={() => setIsPlaying((p) => !p)}
+            aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
+          >
+            {isPlaying ? "❚❚" : "▶"}
+          </button>
+          <button className="lb-ctrl-btn" onClick={goPrev} aria-label="Previous">
+            ◀
+          </button>
+          <button className="lb-ctrl-btn" onClick={goNext} aria-label="Next">
+            ▶
+          </button>
+
+          <span className="lb-counter">
+            {index + 1}/{total}
+          </span>
+
+          <span className="lb-filename">{fileLabel(current.alt)}</span>
+
+          <button
+            className="lb-close-bottom"
+            onClick={onClose}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Main page ────────────────────────────────────────────────────────────────
 export default function RepairExamples() {
+  // lightboxImages = the specific section's images only (not the whole page)
+  const [lightboxImages, setLightboxImages] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = (images, idx) => {
+    setLightboxImages(images);
+    setLightboxIndex(idx);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImages(null);
+  };
+
+  const handleIndexChange = (updater) => {
+    setLightboxIndex((prev) =>
+      typeof updater === "function" ? updater(prev) : updater
+    );
+  };
+
   return (
     <div className="rep-page">
       <div className="rep-hero">
@@ -166,7 +363,7 @@ export default function RepairExamples() {
         <p className="rep-caption-bold">
           Below are few items that I handmade for customers.
         </p>
-        <ImageGrid images={gridRow1} />
+        <ImageGrid images={gridRow1} onImageClick={openLightbox} />
 
         <p className="rep-caption-bold">
           Below are a few items I have repaired for customers
@@ -174,11 +371,24 @@ export default function RepairExamples() {
 
         {repairs.map((section, i) => (
           <div key={i}>
-            <ImageGrid images={section.images} columns={section.columns} />
+            <ImageGrid
+              images={section.images}
+              columns={section.columns}
+              onImageClick={openLightbox}
+            />
             <p className="rep-note">{section.note}</p>
           </div>
         ))}
       </div>
+
+      {lightboxImages !== null && (
+        <Lightbox
+          images={lightboxImages}
+          index={lightboxIndex}
+          onClose={closeLightbox}
+          onIndexChange={handleIndexChange}
+        />
+      )}
     </div>
   );
 }

@@ -70,7 +70,7 @@ export default function BraceletRepairs() {
           </p>
         </div>
 
-        <a className="br-cta" href="#quote">
+        <a className="br-cta" href="request">
           Request a quote here
         </a>
 

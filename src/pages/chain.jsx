@@ -23,7 +23,7 @@ export default function ChainRepairs() {
               Very delicate solid chains that are too thin to be soldered
               can usually be repaired by laser welding which starts at just
               £20.00 so just click on the{" "}
-              <a href="#quote" className="rr-inline-link">
+              <a href="request" className="rr-inline-link">
                 get a quote
               </a>{" "}
               page, fill in your details, add a photo of the damage and
@@ -72,7 +72,7 @@ export default function ChainRepairs() {
           <p>Simple chain designs are usually repaired and returned in about 7 days.</p>
 
           <p>
-            <a href="#quote" className="rr-inline-link">
+            <a href="request" className="rr-inline-link">
               Send me some photos
             </a>{" "}
             of your damaged chain and I will do my best to give you the best

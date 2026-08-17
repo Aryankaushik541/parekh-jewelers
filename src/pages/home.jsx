@@ -121,11 +121,11 @@ function Home() {
             <p className="credentials">
               Our expertise is built on professional knowledge and quality
               craftsmanship. We are a{' '}
-              <a href="#gia" className="gold-link">
+              <a href="https://www.gia.edu/FAQ/gia-faq-alumni-locate-gia-graduate-jeweler" className="gold-link">
                 GIA Qualified Jewelers
               </a>{' '}
               and{' '}
-              <a href="#aigs" className="gold-link">
+              <a href="https://www.aigsthailand.com/Gemology-Course/60/EN" className="gold-link">
                 AIGS Accredited Gemologist
               </a>
               .

@@ -70,7 +70,7 @@ export default function EarringRepairs() {
 
         <p className="er-note">
           Click{" "}
-          <a href="#quote" className="er-inline-link">
+          <a href="request" className="er-inline-link">
             here
           </a>{" "}
           to request an estimate.

@@ -1,0 +1,300 @@
+/* ══════════════════════════════════════════════════════════════════════
+   LIGHTBOX GALLERY
+   ══════════════════════════════════════════════════════════════════════ */
+
+.lb-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+}
+
+/* Box itself is transparent — no white card, only the image + floating
+   controls sit on top of the dark overlay */
+.lb-box {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: max-width 0.25s ease;
+}
+
+.lb-box--fullscreen {
+  max-width: 96vw;
+}
+
+.lb-box--fullscreen .lb-image {
+  max-height: 82vh;
+}
+
+/* ---- top-right fullscreen toggle ---- */
+.lb-fullscreen-toggle {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+  z-index: 3;
+}
+
+.lb-fullscreen-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ---- main image area: just centers the tight-fitting image wrapper ---- */
+.lb-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 320px;
+}
+
+/* This wrapper hugs the ACTUAL rendered size of the photo (inline-flex
+   sizes to its content), so anything positioned absolute inside it —
+   nav arrows, thumbnail strip — stays confined to the photo itself and
+   never overflows past its edges. */
+.lb-image-wrap {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.lb-image {
+  display: block;
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+/* Nav arrows: hidden by default, revealed only while hovering the image */
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, background 0.15s ease;
+}
+
+.lb-image-wrap:hover .lb-nav {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lb-nav:hover {
+  background: #ffffff;
+}
+
+.lb-nav-left {
+  left: 8px;
+}
+
+.lb-nav-right {
+  right: 8px;
+}
+
+/* ---- thumbnail strip: stays INSIDE the photo only, never wider than it;
+   hidden by default, shown on hover ---- */
+.lb-thumbstrip-row {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 4;
+}
+
+.lb-image-wrap:hover .lb-thumbstrip-row {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lb-thumbstrip {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 4px 2px;
+  flex: 1;
+  scrollbar-width: none;
+}
+
+.lb-thumbstrip::-webkit-scrollbar {
+  display: none;
+}
+
+.lb-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 2px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  opacity: 0.65;
+  border: 2px solid transparent;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.lb-thumb:hover {
+  opacity: 0.95;
+}
+
+.lb-thumb-active {
+  opacity: 1;
+  border-color: #b9975b;
+}
+
+.lb-thumb-scroll {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  font-size: 10px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.lb-thumb-scroll:hover {
+  background: #ffffff;
+}
+
+/* ---- bottom control bar: OUTSIDE the photo, sits below it ---- */
+.lb-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 8px 14px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  border-radius: 999px;
+}
+
+.lb-play,
+.lb-ctrl-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+  flex: 0 0 auto;
+}
+
+.lb-play:hover,
+.lb-ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.lb-counter {
+  font-size: 13px;
+  color: #eee;
+  margin-left: 2px;
+  flex: 0 0 auto;
+}
+
+.lb-filename {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-left: 8px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb-close-bottom {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+  flex: 0 0 auto;
+}
+
+.lb-close-bottom:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ---- responsive ---- */
+@media (max-width: 600px) {
+  .lb-image {
+    max-height: 45vh;
+  }
+
+  .lb-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .lb-filename {
+    display: none;
+  }
+
+  .lb-fullscreen-toggle {
+    top: -40px;
+  }
+}

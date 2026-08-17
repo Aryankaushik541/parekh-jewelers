@@ -75,7 +75,7 @@ export default function RingResizing() {
           </p>
         </div>
 
-        <a className="rr-cta" href="#quote">
+        <a className="rr-cta" href="request">
           Request an Estimate here.
         </a>
       </section>

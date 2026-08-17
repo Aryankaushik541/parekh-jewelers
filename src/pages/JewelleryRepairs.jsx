@@ -158,7 +158,7 @@ export default function RingRepairs() {
           <strong>All repairs are guaranteed for 12 Months.</strong>
         </p>
 
-        <a className="rr-cta" href="#quote">
+        <a className="rr-cta" href="request">
           Request an Estimate here
         </a>
       </section>
