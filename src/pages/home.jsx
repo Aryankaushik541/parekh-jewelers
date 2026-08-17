@@ -7,55 +7,55 @@ function Home() {
       title: 'Ring Repairs',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2019/12/service-ring-repairs.jpg',
-      link: 'ring-repairs',
+      link: 'Jewellery',
     },
     {
       title: 'Ring Resizing',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2020/01/service-ring-resizing.jpg',
-      link: '#ring-resizing',
+      link: 'ring_size',
     },
     {
       title: 'Ultra Fine Chain Repairs',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2020/01/service-chain-repairs.jpg',
-      link: '#chain-repairs',
+      link: 'chain',
     },
     {
       title: 'Pendant Repairs',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2020/02/service-pendant-repairs.jpg',
-      link: '#pendant-repairs',
+      link: 'pendant',
     },
     {
       title: 'Bracelet Repairs',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2020/01/service-bracelet-repairs.jpg',
-      link: '#bracelet-repairs',
+      link: 'bracelet',
     },
     {
       title: 'Earring Repairs',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2020/01/service-earring-repairs.jpg',
-      link: '#earring-repairs',
+      link: 'earring',
     },
     {
       title: 'Catches Replaced',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2020/02/service-catches-replaced.jpg',
-      link: '#catches-replaced',
+      link: 'catchess',
     },
     {
       title: 'Necklace Resizing',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2020/02/service-necklace-resizing.jpg',
-      link: '#necklace-resizing',
+      link: 'neckles',
     },
     {
       title: 'Rhodium & Gold Plating',
       image:
         'https://www.jewellerychap.co.uk/wp-content/uploads/2020/02/service-rhodium-plating.jpg',
-      link: '#rhodium-gold-plating',
+      link: 'rodhium',
     },
   ];
 

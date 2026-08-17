@@ -88,6 +88,14 @@
   margin: 0 0 14px;
 }
 
+.rr-pricing {
+  margin-top: 32px;
+}
+
+.rr-pricing p {
+  margin-bottom: 20px;
+}
+
 /* ---------- Notes / footer info ---------- */
 .rr-note {
   font-size: 16px;
@@ -97,6 +105,16 @@
 
 .rr-note:first-of-type {
   margin-top: 36px;
+}
+
+/* ---------- Inline text link ---------- */
+.rr-inline-link {
+  color: #b8860b;
+  text-decoration: underline;
+}
+
+.rr-inline-link:hover {
+  color: #8f6a08;
 }
 
 /* ---------- CTA link ---------- */

@@ -1,4 +1,4 @@
-.rr-page {
+.rp-page {
   font-family: "Georgia", "Times New Roman", serif;
   color: #2b2b2b;
   background: #ffffff;
@@ -7,7 +7,7 @@
 }
 
 /* ---------- Hero banner ---------- */
-.rr-hero {
+.rp-hero {
   position: relative;
   height: 260px;
   display: flex;
@@ -22,7 +22,7 @@
       center / cover no-repeat;
 }
 
-.rr-hero h1 {
+.rp-hero h1 {
   color: #ffffff;
   font-family: "Georgia", "Times New Roman", serif;
   font-weight: 400;
@@ -33,34 +33,39 @@
 }
 
 /* ---------- Content wrapper ---------- */
-.rr-content {
+.rp-content {
   padding: 48px 64px 80px;
 }
 
 /* ---------- Intro block ---------- */
-.rr-intro {
+.rp-intro {
   display: flex;
   gap: 40px;
   align-items: flex-start;
-  margin-bottom: 40px;
+  margin-bottom: 12px;
 }
 
-.rr-intro-text {
+.rp-intro-text {
   flex: 1 1 640px;
 }
 
-.rr-intro-text p {
+.rp-intro-text p,
+.rp-content > p {
   font-size: 16px;
   line-height: 1.7;
   color: #2b2b2b;
   margin: 0 0 20px;
 }
 
-.rr-intro-image {
+.rp-lead {
+  font-size: 17px;
+}
+
+.rp-intro-image {
   flex: 0 0 380px;
 }
 
-.rr-intro-image img {
+.rp-intro-image img {
   width: 100%;
   height: auto;
   display: block;
@@ -68,20 +73,21 @@
 }
 
 /* ---------- Q&A section ---------- */
-.rr-qa-title {
+.rp-qa-title {
   font-size: 22px;
   font-weight: 700;
+  font-style: italic;
   margin: 40px 0 20px;
 }
 
-.rr-qa h3 {
+.rp-qa h3 {
   font-size: 17px;
   font-weight: 700;
   margin: 26px 0 8px;
   color: #1c1c1c;
 }
 
-.rr-qa p {
+.rp-qa p {
   font-size: 16px;
   line-height: 1.7;
   color: #2b2b2b;
@@ -89,46 +95,32 @@
 }
 
 /* ---------- Notes / footer info ---------- */
-.rr-note {
+.rp-note {
   font-size: 16px;
   line-height: 1.7;
   margin: 24px 0 0;
 }
 
-.rr-note:first-of-type {
+.rp-note:first-of-type {
   margin-top: 36px;
-}
-
-/* ---------- CTA link ---------- */
-.rr-cta {
-  display: inline-block;
-  margin-top: 40px;
-  color: #b8860b;
-  font-weight: 700;
-  font-size: 16px;
-  text-decoration: underline;
-}
-
-.rr-cta:hover {
-  color: #8f6a08;
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .rr-content {
+  .rp-content {
     padding: 32px 24px 60px;
   }
 
-  .rr-intro {
+  .rp-intro {
     flex-direction: column;
   }
 
-  .rr-intro-image {
+  .rp-intro-image {
     flex: 0 0 auto;
     width: 100%;
   }
 
-  .rr-hero h1 {
+  .rp-hero h1 {
     font-size: 30px;
     letter-spacing: 3px;
   }

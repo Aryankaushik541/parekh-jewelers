@@ -1,168 +1,167 @@
-import React from 'react';
-import './JewelleryRepairs.css';
-
-const JewelleryRepairs = () => {
-  const qaData = [
-    {
-      question: "Can lost stones be substituted?",
-      answer: "Yes, replacement services start at around £35 provided the setting is still functional. While we keep many stones in stock, some specific requests may require a special order. Diamonds are typically the fastest to source."
-    },
-    {
-      question: "Is it possible to fix worn claws?",
-      answer: "We can reinforce worn-down claws by adding solder over the tips. This thickens the setting and extends its life, though the added solder is slightly softer than original gold and may wear down a bit faster."
-    },
-    {
-      question: "What is the price for claw re-tipping?",
-      answer: "Pricing relies heavily on the ring's design, but a standard 9ct gold setting for a diamond usually begins at £50."
-    },
-    {
-      question: "What does rebuilding a claw involve?",
-      answer: "When a claw is severely broken, it must be filed down to the base. We then mount a completely new claw, securely solder it in place, and carefully shape a seat for the stone before polishing."
-    },
-    {
-      question: "How much for a full claw rebuild?",
-      answer: "A complete claw rebuild in 9ct gold starts at £35. Note that this base price does not cover the potential cost of removing and resetting the stone, if required."
-    },
-    {
-      question: "Can any gemstone's claws be re-tipped?",
-      answer: "No. Only durable gems like Diamonds, Sapphires, and Rubies can withstand soldering heat. Most other stones risk heat damage unless we use advanced laser welding techniques."
-    },
-    {
-      question: "Do you re-tip silver ring claws?",
-      answer: "Silver jewelry rarely features highly durable stones like diamonds and is often too fragile for traditional re-tipping. However, if the stone is tough enough, it might be possible."
-    },
-    {
-      question: "Can lasers be used instead of soldering?",
-      answer: "Laser welding is an option depending on the exact design. However, it is frequently safer and more effective to temporarily remove the stone to properly repair or replace the claw."
-    },
-    {
-      question: "Can a thinning ring band be replaced?",
-      answer: "Absolutely. We can remove the old, worn band and meld it with fresh gold to create a thicker, sturdier shank. This can be done as a partial or full replacement, seamlessly extending the ring's lifespan."
-    },
-    {
-      question: "What is the cost for a new band?",
-      answer: "Costs fluctuate based on design complexity and gold weight. A small half-shank replacement starts near £150, whereas full shank replacements in 9ct gold begin around £250."
-    },
-    {
-      question: "What is the rate for cleaning and polishing?",
-      answer: "A standard clean and polish starts at £20 for a basic band. This includes gentle sanding to erase surface scratches, burnishing, high-polish buffing, and steam cleaning."
-    }
-  ];
-
+import React from "react";
+import "./jewelleryRepairs.css";
+import img1 from "../assets/service/1.jpg"
+export default function RingRepairs() {
   return (
-    <div className="jewellery-container">
-      {/* Navigation Header */}
-      <header className="main-header">
-        <div className="logo">
-          <h2>THE JEWELLERY CHAP</h2>
-        </div>
-        <nav className="main-nav">
-          <a href="#home">HOME</a>
-          <a href="#repair-services" className="active">REPAIR SERVICES</a>
-          <a href="#how-it-works">HOW IT WORKS</a>
-          <a href="#repair-examples">REPAIR EXAMPLES</a>
-          <a href="#quote">REQUEST A QUOTE</a>
-          <a href="#contact">CONTACT</a>
-        </nav>
-      </header>
-
-      {/* Hero Section */}
-      <section className="hero-section">
+    <div className="rr-page">
+      {/* Hero banner */}
+      <section className="rr-hero">
         <h1>RING REPAIRS</h1>
       </section>
 
-      {/* Main Content Area */}
-      <main className="content-area">
-        <div className="intro-section">
-          <div className="intro-text">
+      {/* Main content */}
+      <section className="rr-content">
+        <div className="rr-intro">
+          <div className="rr-intro-text">
             <p>
-              Most gold, silver, and platinum rings can be successfully restored. Occasionally, stones must be unseated prior to soldering. While diamonds and sapphires generally resist heat damage, other gemstones are more vulnerable. In these cases, precision laser welding serves as a safe alternative to protect your valuable stones.
+              I can repair most rings made of Gold, Silver or Platinum. If a
+              ring needs to be soldered some stones may need to be removed,
+              diamonds and sapphires are usually heat safe unless treated by
+              glass filling or other modern methods of enhancement, but most
+              others can be damaged by heat. Laser welding is often utilised
+              to keep the stones safe.
             </p>
             <p>
-              Fixing or replacing retaining claws is among our most frequent requests. Even if the ring's band is completely worn through, a new shank can be expertly crafted and attached, leaving a flawless finish even on highly intricate designs.
+              Ring claw re-tipping and replacement is a very common repair,
+              sometimes rings are so worn that the shank itself is worn out,
+              I can expertly make a new shank and complete a seamless repair
+              even when the ring is set with delicate stones.
             </p>
             <p>
-              We maintain a large inventory of replacement stones to carefully match missing pieces. If a specific gemstone is required, we may need time to source it, and we will always consult with you before finalizing the repair plan.
+              I have thousands of stones in my inventory but missing stones
+              have to be carefully matched and sometimes if I don&rsquo;t
+              have one in stock it can take several weeks to locate and
+              source a suitable replacement, I will confirm this with you
+              before you commit to a repair.
             </p>
             <p>
-              Below, you will find common inquiries regarding our restoration services along with sample pricing. By utilizing both traditional goldsmithing and modern laser welding, we ensure top-tier results for your delicate jewelry.
+              Below are a few questions and answers about ring repairs that I
+              often carry out and example prices. I use traditional
+              goldsmithing techniques and I have invested in a professional
+              laser welder to achieve the highest quality results on the
+              most delicate jewellery.
             </p>
           </div>
-          <div className="intro-image">
-            <img src="https://via.placeholder.com/400x250/333/fff?text=Hands+Repairing+Ring" alt="Jeweler working on a ring" />
+
+          <div className="rr-intro-image">
+            <img
+              src={img1}
+              alt="Jeweller repairing a ring"
+            />
           </div>
         </div>
 
-        {/* Q&A Section */}
-        <div className="qa-section">
-          <h3>Questions & Answers.</h3>
-          {qaData.map((item, index) => (
-            <div className="qa-item" key={index}>
-              <h4>{item.question}</h4>
-              <p>{item.answer}</p>
-            </div>
-          ))}
+        <h2 className="rr-qa-title">Questions &amp; Answers.</h2>
+
+        <div className="rr-qa">
+          <h3>Can you replace my missing stone?</h3>
+          <p>
+            Missing stones can be replaced from £35 if the claws are still
+            in good condition, I carry thousands of stones but sometimes
+            they have to be ordered which can take a while. Diamonds are
+            usually the easiest to replace as they are easily available in
+            all sizes.
+          </p>
+
+          <h3>How are broken or worn claws repaired?</h3>
+          <p>
+            Claws can be re-tipped or rebuilt, if a claw is worn down but it
+            is still covering the stone it may be possible to improve and
+            strengthen it by melting solder over the tip. This will make the
+            claw thicker and add life to it but it won&rsquo;t be as durable
+            as the original claw because it is being resurfaced with solder
+            which is softer than gold and will wear more quickly.
+          </p>
+
+          <h3>How much does it cost to re-tip a ring.</h3>
+          <p>
+            That depends very much on the design of the jewellery but a 9ct
+            gold diamond ring will start at around £50 to retip.
+          </p>
+
+          <h3>What is meant by rebuilding a claw?</h3>
+          <p>
+            If the claw has broken off or is too worn for re-tipping it will
+            need to be filed or cut down to its base and the space prepared
+            so a new claw can be mounted and either soldered or laser welded
+            in place. A new seat then has to be cut for the stone to sit in
+            and it can be shaped and polished.
+          </p>
+
+          <h3>How much does it cost to rebuild a broken claw?</h3>
+          <p>
+            Fully rebuilding a single broken claw in 9ct gold starts at £35
+            but this does not include removing and resetting the stone which
+            may be necessary.
+          </p>
+
+          <h3>Can claws be re-tipped on all types of gemstone?</h3>
+          <p>
+            No, re-tipping is only done on Diamond, Moissanite, Sapphire
+            &amp; Ruby which have not been fracture filled or treated with
+            polymers etc. Nearly every other stone will be damaged or
+            destroyed by the heat of soldering.
+          </p>
+
+          <h3>Can claws be re-tipped on silver jewellery.</h3>
+          <p>
+            It&rsquo;s rare to see real diamond set in silver jewellery,
+            often the stones are very delicate and
+          </p>
+          <p>
+            not suitable for re-tipping, but if the stone is durable enough
+            it may be possible to re-tip the claws.
+          </p>
+
+          <h3>Can claws be laser tipped if not suitable for solder re-tipping.</h3>
+          <p>
+            It may be possible to laser tip a claw but it depends on the
+            design of the jewellery. Usually it is safer to remove the stone
+            and repair the claw and once removed it may be better to replace
+            the claw completely.
+          </p>
+
+          <h3>Can you replace a worn ring shank?</h3>
+          <p>
+            Usually the answer is yes. Ring shanks can usually be removed and
+            melted down with more gold to make a new bigger shank and this
+            can be soldered back to the ring or if the stones are delicate
+            it can be laser welded. This can be done as a half shank where
+            the bottom half is replaced or three quarters or even the full
+            shank. The joint is usually invisible or at least difficult to
+            see and it will give the ring decades more life.
+          </p>
+
+          <h3>How much does a new ring shank cost?</h3>
+          <p>
+            The price to re-shank a ring varies according to the design and
+            the amount of gold needed but a small half shank can cost as
+            little as £150 and full shanks start from £250 in 9ct gold.
+          </p>
+
+          <h3>What does a clean &amp; polish cost?</h3>
+          <p>
+            It depends on the ring but it starts from £20 for a simple
+            wedding band, it will be cleaned and lightly sanded to remove
+            the fine scratches and burnished before being polished and steam
+            cleaned.
+          </p>
         </div>
 
-        {/* Footer Notes */}
-        <div className="footer-notes">
-          <p><strong>Return Post is from £9.95 (£750 compensation) for RM Special Delivery depending on value, size & weight.</strong></p>
-          <p><strong>All repairs are guaranteed for 12 Months.</strong></p>
-          <a href="#estimate" className="estimate-link">Request an Estimate here</a>
-        </div>
-      </main>
+        <p className="rr-note">
+          <strong>
+            Return Post is from £9.95 (£750 compensation) for RM Special
+            Delivery depending on value, size &amp; weight.
+          </strong>
+        </p>
+        <p className="rr-note">
+          <strong>All repairs are guaranteed for 12 Months.</strong>
+        </p>
 
-      {/* Footer Area */}
-      <footer className="main-footer">
-        <div className="footer-columns">
-          <div className="footer-col">
-            <h4>CONTACT US</h4>
-            <ul>
-              <li>Email: info@jewellerychap.co.uk</li>
-              <li>JewelleryChap</li>
-              <li>The Old Red Postbox</li>
-              <li>PO Box 744</li>
-              <li>North Ferriby</li>
-              <li>HU14 9BN</li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>REPAIR SERVICES</h4>
-            <ul>
-              <li>Ring Repairs</li>
-              <li>Ring Resizing</li>
-              <li>Chain Repairs</li>
-              <li>Pendant Repairs</li>
-              <li>Bracelet Repairs</li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>REPAIR SERVICES</h4>
-            <ul>
-              <li>Earring Repairs</li>
-              <li>Catches Replaced</li>
-              <li>Necklace Repairs</li>
-              <li>Rhodium Plating</li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>CUSTOMER SERVICES</h4>
-            <ul>
-              <li>Shop Online</li>
-              <li>Log-in</li>
-              <li>Shopping Basket</li>
-              <li>Checkout</li>
-              <li>Returns & Refunds</li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>© 2020 The Jewellery Chap</p>
-          <p>Privacy Policy | Terms & Conditions</p>
-        </div>
-      </footer>
+        <a className="rr-cta" href="#quote">
+          Request an Estimate here
+        </a>
+      </section>
     </div>
   );
-};
-
-export default JewelleryRepairs;
+}

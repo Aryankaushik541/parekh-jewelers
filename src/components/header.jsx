@@ -64,20 +64,20 @@ function Header() {
               <div className="mega-menu-content">
                 <div className="menu-column">
                   <a href="Jewellery">RING REPAIRS</a>
-                  <a href="#ring-resizing">RING RESIZING</a>
-                  <a href="#necklace-chain-repairs">NECKLACE CHAIN REPAIRS</a>
+                  <a href="ring_size">RING RESIZING</a>
+                  <a href="chain">NECKLACE CHAIN REPAIRS</a>
                 </div>
 
                 <div className="menu-column">
-                  <a href="#pendant-repairs">PENDANT REPAIRS</a>
-                  <a href="#bracelet-repairs">BRACELET REPAIRS</a>
-                  <a href="#earring-repairs">EARRING REPAIRS</a>
+                  <a href="pendant">PENDANT REPAIRS</a>
+                  <a href="bracelet">BRACELET REPAIRS</a>
+                  <a href="earring">EARRING REPAIRS</a>
                 </div>
 
                 <div className="menu-column">
-                  <a href="#catches-replaced">CATCHES REPLACED</a>
-                  <a href="#necklace-resizing">NECKLACE RESIZING</a>
-                  <a href="#rhodium-gold-plating">RHODIUM &amp; GOLD PLATING</a>
+                  <a href="catchess">CATCHES REPLACED</a>
+                  <a href="neckles">NECKLACE RESIZING</a>
+                  <a href="rodhium">RHODIUM &amp; GOLD PLATING</a>
                 </div>
               </div>
             </div>
@@ -115,20 +115,20 @@ function Header() {
         </button>
 
         <ul className="mobile-menu-list">
-          <li><a href="#home" className="gold-active" onClick={closeMobileMenu}>HOME</a></li>
-          <li><a href="#how-it-works" onClick={closeMobileMenu}>HOW IT WORKS</a></li>
-          <li><a href="#repair-examples" onClick={closeMobileMenu}>REPAIR EXAMPLES</a></li>
-          <li><a href="#request-quote" onClick={closeMobileMenu}>REQUEST A QUOTE</a></li>
-          <li><a href="#ring-repairs" onClick={closeMobileMenu}>RING REPAIRS</a></li>
-          <li><a href="#ring-resizing" className="gold-active" onClick={closeMobileMenu}>RING RESIZING</a></li>
-          <li><a href="#necklace-chain-repairs" onClick={closeMobileMenu}>NECKLACE CHAIN REPAIRS</a></li>
-          <li><a href="#pendant-repairs" onClick={closeMobileMenu}>PENDANT REPAIRS</a></li>
-          <li><a href="#bracelet-repairs" onClick={closeMobileMenu}>BRACELET REPAIRS</a></li>
-          <li><a href="#earring-repairs" onClick={closeMobileMenu}>EARRING REPAIRS</a></li>
-          <li><a href="#catches-replaced" onClick={closeMobileMenu}>CATCHES REPLACED</a></li>
-          <li><a href="#necklace-resizing" onClick={closeMobileMenu}>NECKLACE RESIZING</a></li>
-          <li><a href="#rhodium-gold-plating" onClick={closeMobileMenu}>RHODIUM &amp; GOLD PLATING</a></li>
-          <li><a href="#contact" onClick={closeMobileMenu}>CONTACT</a></li>
+          <li><a href="/" className="gold-active" onClick={closeMobileMenu}>HOME</a></li>
+          <li><a href="work" onClick={closeMobileMenu}>HOW IT WORKS</a></li>
+          <li><a href="example" onClick={closeMobileMenu}>REPAIR EXAMPLES</a></li>
+          <li><a href="request" onClick={closeMobileMenu}>REQUEST A QUOTE</a></li>
+          <li><a href="Jewellery" onClick={closeMobileMenu}>RING REPAIRS</a></li>
+          <li><a href="ring_size" className="gold-active" onClick={closeMobileMenu}>RING RESIZING</a></li>
+          <li><a href="chain" onClick={closeMobileMenu}>NECKLACE CHAIN REPAIRS</a></li>
+          <li><a href="earring" onClick={closeMobileMenu}>PENDANT REPAIRS</a></li>
+          <li><a href="earring" onClick={closeMobileMenu}>BRACELET REPAIRS</a></li>
+          <li><a href="earring" onClick={closeMobileMenu}>EARRING REPAIRS</a></li>
+          <li><a href="catchess" onClick={closeMobileMenu}>CATCHES REPLACED</a></li>
+          <li><a href="neckles" onClick={closeMobileMenu}>NECKLACE RESIZING</a></li>
+          <li><a href="rodhium" onClick={closeMobileMenu}>RHODIUM &amp; GOLD PLATING</a></li>
+          <li><a href="contact" onClick={closeMobileMenu}>CONTACT</a></li>
         </ul>
       </div>
     </header>

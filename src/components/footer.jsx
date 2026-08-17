@@ -51,11 +51,11 @@ function Footer() {
         <div className="footer-col">
           <h3 className="footer-heading">REPAIR SERVICES</h3>
           <ul className="footer-links">
-            <li><a href="#ring-repairs">Ring Repairs</a></li>
-            <li><a href="#ring-resizing">Ring Resizing</a></li>
-            <li><a href="#chain-repairs">Chain Repairs</a></li>
-            <li><a href="#pendant-repairs">Pendant Repairs</a></li>
-            <li><a href="#bracelet-repairs">Bracelet Repairs</a></li>
+            <li><a href="Jewellery">Ring Repairs</a></li>
+            <li><a href="ring_size">Ring Resizing</a></li>
+            <li><a href="chain">Chain Repairs</a></li>
+            <li><a href="pendant">Pendant Repairs</a></li>
+            <li><a href="bracelet">Bracelet Repairs</a></li>
           </ul>
         </div>
 
@@ -63,10 +63,10 @@ function Footer() {
         <div className="footer-col">
           <h3 className="footer-heading">REPAIR SERVICES</h3>
           <ul className="footer-links">
-            <li><a href="#earring-repairs">Earring Repairs</a></li>
-            <li><a href="#catches-replaced">Catches Replaced</a></li>
-            <li><a href="#necklace-repairs">Necklace Repairs</a></li>
-            <li><a href="#rhodium-plating">Rhodium Plating</a></li>
+            <li><a href="earring">Earring Repairs</a></li>
+            <li><a href="catchess">Catches Replaced</a></li>
+            <li><a href="neckles">Necklace Repairs</a></li>
+            <li><a href="rodhium">Rhodium Plating</a></li>
           </ul>
         </div>
 

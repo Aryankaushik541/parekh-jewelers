@@ -88,6 +88,26 @@
   margin: 0 0 14px;
 }
 
+.rr-pricing {
+  margin-top: 32px;
+}
+
+.rr-pricing p {
+  margin-bottom: 20px;
+}
+
+/* ---------- Bullet list ---------- */
+.rr-list {
+  margin: 0 0 20px;
+  padding-left: 20px;
+}
+
+.rr-list li {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #2b2b2b;
+}
+
 /* ---------- Notes / footer info ---------- */
 .rr-note {
   font-size: 16px;
@@ -97,6 +117,16 @@
 
 .rr-note:first-of-type {
   margin-top: 36px;
+}
+
+/* ---------- Inline text link ---------- */
+.rr-inline-link {
+  color: #b8860b;
+  text-decoration: underline;
+}
+
+.rr-inline-link:hover {
+  color: #8f6a08;
 }
 
 /* ---------- CTA link ---------- */

@@ -1,4 +1,4 @@
-.rr-page {
+.br-page {
   font-family: "Georgia", "Times New Roman", serif;
   color: #2b2b2b;
   background: #ffffff;
@@ -7,7 +7,7 @@
 }
 
 /* ---------- Hero banner ---------- */
-.rr-hero {
+.br-hero {
   position: relative;
   height: 260px;
   display: flex;
@@ -22,7 +22,7 @@
       center / cover no-repeat;
 }
 
-.rr-hero h1 {
+.br-hero h1 {
   color: #ffffff;
   font-family: "Georgia", "Times New Roman", serif;
   font-weight: 400;
@@ -33,34 +33,34 @@
 }
 
 /* ---------- Content wrapper ---------- */
-.rr-content {
+.br-content {
   padding: 48px 64px 80px;
 }
 
 /* ---------- Intro block ---------- */
-.rr-intro {
+.br-intro {
   display: flex;
   gap: 40px;
   align-items: flex-start;
   margin-bottom: 40px;
 }
 
-.rr-intro-text {
+.br-intro-text {
   flex: 1 1 640px;
 }
 
-.rr-intro-text p {
+.br-intro-text p {
   font-size: 16px;
   line-height: 1.7;
   color: #2b2b2b;
   margin: 0 0 20px;
 }
 
-.rr-intro-image {
+.br-intro-image {
   flex: 0 0 380px;
 }
 
-.rr-intro-image img {
+.br-intro-image img {
   width: 100%;
   height: auto;
   display: block;
@@ -68,39 +68,69 @@
 }
 
 /* ---------- Q&A section ---------- */
-.rr-qa-title {
+.br-qa-title {
   font-size: 22px;
   font-weight: 700;
   margin: 40px 0 20px;
 }
 
-.rr-qa h3 {
+.br-qa h3 {
   font-size: 17px;
   font-weight: 700;
   margin: 26px 0 8px;
   color: #1c1c1c;
 }
 
-.rr-qa p {
+.br-qa p {
   font-size: 16px;
   line-height: 1.7;
   color: #2b2b2b;
   margin: 0 0 14px;
 }
 
+.br-pricing {
+  margin-top: 32px;
+}
+
+.br-pricing p {
+  margin-bottom: 20px;
+}
+
+/* ---------- Bullet list ---------- */
+.br-list {
+  margin: 0 0 20px;
+  padding-left: 20px;
+}
+
+.br-list li {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #2b2b2b;
+}
+
 /* ---------- Notes / footer info ---------- */
-.rr-note {
+.br-note {
   font-size: 16px;
   line-height: 1.7;
   margin: 24px 0 0;
 }
 
-.rr-note:first-of-type {
+.br-note:first-of-type {
   margin-top: 36px;
 }
 
+/* ---------- Inline text link ---------- */
+.br-inline-link {
+  color: #b8860b;
+  text-decoration: underline;
+}
+
+.br-inline-link:hover {
+  color: #8f6a08;
+}
+
 /* ---------- CTA link ---------- */
-.rr-cta {
+.br-cta {
   display: inline-block;
   margin-top: 40px;
   color: #b8860b;
@@ -109,26 +139,26 @@
   text-decoration: underline;
 }
 
-.rr-cta:hover {
+.br-cta:hover {
   color: #8f6a08;
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .rr-content {
+  .br-content {
     padding: 32px 24px 60px;
   }
 
-  .rr-intro {
+  .br-intro {
     flex-direction: column;
   }
 
-  .rr-intro-image {
+  .br-intro-image {
     flex: 0 0 auto;
     width: 100%;
   }
 
-  .rr-hero h1 {
+  .br-hero h1 {
     font-size: 30px;
     letter-spacing: 3px;
   }
