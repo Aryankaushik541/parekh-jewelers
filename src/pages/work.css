@@ -1,0 +1,234 @@
+/* =========================================
+   HOW IT WORKS PAGE — work.css
+   Desktop layout matching jewellerychap.co.uk
+   Header & Footer excluded
+   ========================================= */
+
+/* Base */
+.how-it-works-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.7;
+  background-color: #fff;
+}
+
+/* =========================================
+   HERO SECTION
+   Dark background with jeweller's workshop
+   photo overlay — "HOW IT WORKS" centered
+   ========================================= */
+.hero-section1 {
+  background-color: #1e1e18;
+  /* Uncomment and set your image path: */
+   background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('../assets/repair/work.jpg'); 
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero-section h2 {
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-size: 36px;
+  font-weight: normal;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+}
+
+/* =========================================
+   MAIN CONTENT WRAPPER
+   overflow-x hidden — animation ke time
+   horizontal scrollbar na aaye
+   ========================================= */
+.main-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 36px 30px 60px;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   INTRO TEXT ANIMATION
+   Page load pe left → right → centre settle
+   (damped oscillation / spring effect)
+   ========================================= */
+@keyframes swingSettle {
+  0%   { transform: translateX(-70px); opacity: 0; }
+  25%  { transform: translateX(35px);  opacity: 1; }
+  45%  { transform: translateX(-18px);             }
+  62%  { transform: translateX(9px);               }
+  76%  { transform: translateX(-4px);              }
+  87%  { transform: translateX(2px);               }
+  95%  { transform: translateX(-1px);              }
+  100% { transform: translateX(0);                 }
+}
+
+/* =========================================
+   INTRO TEXT  —  left-aligned
+   ========================================= */
+.intro-text {
+  font-size: 14.5px;
+  color: #444;
+  line-height: 1.75;
+  text-align: left;
+  margin: 0 0 28px;
+
+  /* Spring settle animation on page load */
+  animation: swingSettle 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+
+  /* Respect reduced-motion user preference */
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* =========================================
+   STEP CARDS  —  3 equal columns in a row
+   ========================================= */
+.steps-container {
+  display: flex;
+  flex-direction: row;         /* horizontal row */
+  gap: 0;                      /* cards touch with shared borders */
+  margin-bottom: 32px;
+  border: 1px solid #ccc;      /* outer border */
+}
+
+.step-card {
+  flex: 1;                     /* equal width */
+  padding: 30px 20px 26px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.step-card:last-child {
+  border-right: none;
+}
+
+.step-number {
+  background-color: #c9a84c;   /* gold */
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-family: 'Georgia', serif;
+  margin: 0 auto 18px;
+  line-height: 1;
+}
+
+.step-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.step-card a {
+  color: #c9a84c;
+  text-decoration: underline;
+}
+
+.step-card a:hover {
+  color: #9a7820;
+}
+
+/* =========================================
+   DETAILED INFO PARAGRAPH  —  left-aligned
+   ========================================= */
+.detailed-info {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+  text-align: left;
+  margin: 0 0 48px;
+}
+
+/* =========================================
+   Q & A SECTION
+   ========================================= */
+.qa-section {
+  padding-top: 8px;
+}
+
+/* "Questions & Answers." — bold */
+.qa-section h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 24px;
+  letter-spacing: 0;
+}
+
+.qa-item {
+  margin-bottom: 20px;
+}
+
+/* Question — bold */
+.qa-item h4 {
+  font-size: 14.5px;
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 4px;
+  line-height: 1.5;
+}
+
+/* Answer — regular */
+.qa-item p {
+  font-size: 14.5px;
+  color: #333;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.qa-item strong {
+  font-weight: bold;
+}
+
+/* =========================================
+   RESPONSIVE  —  Mobile (stack cards)
+   ========================================= */
+@media (max-width: 680px) {
+  .hero-section {
+    padding: 56px 20px;
+  }
+
+  .hero-section h2 {
+    font-size: 26px;
+    letter-spacing: 4px;
+  }
+
+  .main-content {
+    padding: 28px 18px 48px;
+  }
+
+  /* Stack cards vertically on mobile */
+  .steps-container {
+    flex-direction: column;
+    border: none;
+    gap: 14px;
+  }
+
+  .step-card {
+    border: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+
+  .step-number {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .detailed-info {
+    font-size: 13.5px;
+  }
+}

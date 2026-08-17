@@ -1,0 +1,240 @@
+.quote-page {
+  --q-ink: #2b2b2b;
+  --q-muted: #4a4a4a;
+  --q-gold: #b9975b;
+  --q-border: #ddd;
+  --q-field-bg: #fff;
+
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--q-ink);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Hero banner */
+.quote-hero {
+  position: relative;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 40px;
+  border-bottom: 3px solid var(--q-gold);
+}
+
+.quote-hero img {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  filter: grayscale(60%) brightness(0.5);
+}
+
+/* Title enters off-screen and settles to center on every load */
+.quote-hero-title {
+  position: relative;
+  color: #fff;
+  letter-spacing: 0.14em;
+  font-weight: 400;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  animation: quote-title-settle 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes quote-title-settle {
+  0% {
+    transform: translateX(-160%);
+    opacity: 0;
+  }
+  45% {
+    transform: translateX(60%);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-hero-title {
+    animation: none;
+  }
+}
+
+/* Notice + intro copy */
+.quote-notice {
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  padding: 0 30px;
+  margin-bottom: 30px;
+}
+
+.quote-intro {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--q-muted);
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.quote-intro p {
+  margin: 6px 0;
+}
+
+/* Form */
+.quote-form {
+  padding: 0 20px;
+}
+
+.quote-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.quote-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-field--full {
+  margin-bottom: 24px;
+}
+
+.quote-field label {
+  font-size: 0.95rem;
+  color: var(--q-muted);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.quote-field input[type="text"],
+.quote-field input[type="email"] {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 10px 12px;
+  border: 1px solid var(--q-border);
+  border-radius: 3px;
+  background: var(--q-field-bg);
+  color: var(--q-ink);
+}
+
+.quote-field input:focus {
+  outline: none;
+  border-color: var(--q-gold);
+  box-shadow: 0 0 0 3px rgba(185, 151, 91, 0.2);
+}
+
+.quote-subheading {
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin: 30px 0 20px;
+}
+
+/* File dropzone */
+.quote-dropzone {
+  border: 2px dashed var(--q-border);
+  border-radius: 4px;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  color: #999;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.quote-dropzone:hover {
+  border-color: var(--q-gold);
+  background: rgba(185, 151, 91, 0.04);
+}
+
+.quote-select-btn {
+  display: inline-block;
+  background: var(--q-gold);
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.quote-select-btn:hover {
+  background: #a5823f;
+}
+
+.quote-submit-btn {
+  display: inline-block;
+  font-family: inherit;
+  background: var(--q-gold);
+  color: #fff;
+  border: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 10px 0 40px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.quote-submit-btn:hover {
+  background: #a5823f;
+  transform: translateY(-1px);
+}
+
+/* Footnote */
+.quote-footnote {
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--q-muted);
+  padding: 24px 60px 60px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.quote-footnote-bold {
+  font-weight: 700;
+  color: var(--q-ink);
+}
+
+@media (max-width: 700px) {
+  .quote-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .quote-hero {
+    height: 160px;
+  }
+
+  .quote-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .quote-footnote {
+    padding: 20px 20px 40px;
+  }
+
+  .quote-dropzone {
+    padding: 36px 16px;
+  }
+}
