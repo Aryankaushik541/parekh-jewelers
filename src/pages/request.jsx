@@ -1,19 +1,6 @@
 import { useState } from "react";
 import "./request.css";
 
-/**
- * Request a Quote — page content only.
- * Header (logo/nav) and Footer are NOT included since the site
- * already has them — render this between your existing header
- * and footer, e.g.:
- *
- *   <Header />
- *   <RequestQuote />
- *   <Footer />
- */
-
-const HERO_IMAGE = "../assets/repair/work.jpg"; // swap for your real banner photo
-
 export default function RequestQuote() {
   const [files, setFiles] = useState([]);
 
@@ -28,8 +15,8 @@ export default function RequestQuote() {
 
   return (
     <div className="quote-page">
+      {/* Hero Section - Image is now handled in CSS */}
       <div className="quote-hero">
-        <img src={HERO_IMAGE} alt="" />
         <h1 className="quote-hero-title">Request a Quote</h1>
       </div>
 
@@ -54,6 +41,7 @@ export default function RequestQuote() {
         </p>
       </div>
 
+      {/* Form Section */}
       <form
         className="quote-form"
         onSubmit={(e) => e.preventDefault()}
@@ -89,6 +77,7 @@ export default function RequestQuote() {
           <input id="address" type="text" />
         </div>
 
+        <div className="quote-divider"></div>
         <h2 className="quote-subheading">Tell us about your Jewellery</h2>
 
         <div className="quote-field quote-field--full">
@@ -108,7 +97,8 @@ export default function RequestQuote() {
           <label htmlFor="describe">
             Please describe what you want altering or repairing. (required) *
           </label>
-          <input id="describe" type="text" required />
+          {/* Changed to textarea for better UX on descriptions */}
+          <textarea id="describe" rows="4" required></textarea>
         </div>
 
         <div className="quote-field quote-field--full">
@@ -143,11 +133,14 @@ export default function RequestQuote() {
           </div>
         </div>
 
-        <button type="submit" className="quote-submit-btn">
-          Send Quote Request
-        </button>
+        <div className="quote-submit-container">
+          <button type="submit" className="quote-submit-btn">
+            Send Quote Request
+          </button>
+        </div>
       </form>
 
+      {/* Footnote Section */}
       <div className="quote-footnote">
         <p>
           When posting always use secure quality packaging. Please do not
